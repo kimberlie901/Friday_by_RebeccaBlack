@@ -18,8 +18,9 @@
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
-// in the html.
+// in the html
 
+// this code interacts with the DOM in a call to jQuery 
 $(document).ready(function () {
 
   // TODO: Add a listener for click events on the save button. This code should
@@ -29,9 +30,12 @@ $(document).ready(function () {
   saveBtn.on("click", function() {
 
     var time = $(this).siblings(".hour").text();
-    var plan = $(this).siblings("row").val();
+    var schedule = $(this).siblings(".description").val();
     
-    localStorage.setItem(time, plan);
+    localStorage.setItem(time, schedule, JSON.stringify(time, schedule));
+    var retrieveSchedule = localStorage.getItem(time, schedule);
+
+    console.log("retrieveSchedule: ", JSON.parse(retrieveSchedule));
   });
 });
 
@@ -57,11 +61,14 @@ $(document).ready(function () {
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
+
+  // this code will set the colors for the different times of day 
+
 function timeColor() {
   var hour = dayjs().hour();
 
   $(".time-block").each(function() {
-    var currentHour = parseInt($(this).attr("id").split("hour")[1]);
+    var currentHour = parseInt($(this).attr("id").split("-")[1]);
     if (currentHour > hour) {
       $(this).addClass("future");
       $(this).removeClass("present");
@@ -81,8 +88,8 @@ function timeColor() {
 timeColor();
 
 
-function usePlanner() {
-  $(".hour").each(function() {
+function schedulePlanner() {
+  $(".description").each(function() {
     var currentHour = $(this).text();
     var currentPlan = localStorage.getItem(currentHour);
 
@@ -93,7 +100,7 @@ function usePlanner() {
 }
 
 
-usePlanner();
+schedulePlanner();
 
 // TODO: Add code to display the current date in the header of the page.
 // var dayJsObject = dayjs();
