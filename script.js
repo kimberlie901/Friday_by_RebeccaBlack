@@ -20,12 +20,20 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-$(function () {
+$(document).ready(function () {
 
   // TODO: Add a listener for click events on the save button. This code should
 
   var saveBtn = $(".saveBtn");  
 
+  saveBtn.on("click", function() {
+
+    var time = $(this).siblings(".hour").text();
+    var plan = $(this).siblings("row").val();
+    
+    localStorage.setItem(time, plan);
+  });
+});
 
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -53,16 +61,24 @@ function timeColor() {
   var hour = dayjs().hour();
 
   $(".time-block").each(function() {
-    var currentHour = parseInt($(this).attr("id"));
+    var currentHour = parseInt($(this).attr("id").split("hour")[1]);
     if (currentHour > hour) {
       $(this).addClass("future");
+      $(this).removeClass("present");
+      $(this).removeClass("past");
     } else if (currentHour === hour) {
       $(this).addClass("present");
+      $(this).removeClass("future");
+      $(this).removeClass("past");
     } else {
       $(this).addClass("past");
+      $(this).removeClass("present");
+      $(this).removeClass("future");
     }
   })
 };
+
+timeColor();
 
 
 function usePlanner() {
@@ -76,20 +92,8 @@ function usePlanner() {
   });
 }
 
-saveBtn.on("click", function() {
 
-  var time = $(this).siblings(".hour").text();
-  var plan = $(this).siblings(".row").val();
-
-  localStorage.setItem(time, plan);
-});
-
-
-timeColor();
 usePlanner();
-});
-
-
 
 // TODO: Add code to display the current date in the header of the page.
 // var dayJsObject = dayjs();
