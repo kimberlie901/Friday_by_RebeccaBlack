@@ -12,6 +12,8 @@ This a simple 5-day 8AM - 5PM work day scheduler application that allows a uswer
 
 <img width="1435" alt="Screenshot 2023-03-19 at 6 56 21 PM" src="https://user-images.githubusercontent.com/96274023/226214969-4c19922f-4c87-484c-8f02-205404dbb5d4.png">
 
+Deployed GitHub Page: https://kimberlie901.github.io/Friday_by_RebeccaBlack/ 
+
 1. The current display that shows the current Day, Month, and Date
 2. Below there is 10 time blocks; starting at 8AM and ending at 5pm
 3. The time blocks will be color coded depending on the current time of the day
