@@ -27,6 +27,8 @@ $(document).ready(function () {
 
   var saveBtn = $(".saveBtn");  
 
+ // sets the localStorage so the schedule user puts in is there 
+
   saveBtn.on("click", function() {
 
     var time = $(this).siblings(".hour").text();
@@ -69,6 +71,8 @@ function timeColor() {
 
   $(".time-block").each(function() {
     var currentHour = parseInt($(this).attr("id").split("-")[1]);
+    if ($(this).attr("id").split("-")[1].includes("pm"))currentHour += 12; 
+    
     if (currentHour > hour) {
       $(this).addClass("future");
       $(this).removeClass("present");
@@ -87,14 +91,14 @@ function timeColor() {
 
 timeColor();
 
-
+// 
 function schedulePlanner() {
-  $(".description").each(function() {
-    var currentHour = $(this).text();
+  $(".time-block").each(function() {
+    var currentHour = $(this)[0].id.split("-")[1].toUpperCase();
     var currentPlan = localStorage.getItem(currentHour);
 
     if(currentPlan !== null) {
-      $(this).siblings(".row").val(currentPlan);
+      $(this).children(1)[1].textContent = currentPlan;
     }
   });
 }
