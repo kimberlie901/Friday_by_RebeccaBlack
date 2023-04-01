@@ -1,4 +1,4 @@
-# Friday_by_RebeccaBlack
+# Work Day Scheduler 
 
 ## Description
 This a simple 5-day 8AM - 5PM work day scheduler application that allows a uswer to input an event between the hours of 8AM - 5PM and once the rage is refreshed the event that was inserted will still be there. 
