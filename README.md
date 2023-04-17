@@ -11,6 +11,7 @@ This a simple 5-day 8AM - 5PM work day scheduler application that allows a uswer
 ## Technologies Used 
 - HTML
 - CSS
+- JavaScript
 - Bootstrap
 - dayJS
 
