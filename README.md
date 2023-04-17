@@ -4,9 +4,9 @@
 This a simple 5-day 8AM - 5PM work day scheduler application that allows a uswer to input an event between the hours of 8AM - 5PM and once the rage is refreshed the event that was inserted will still be there. 
 
 ## Installation
-- Download Repository. 
-- Open index.html in the Visual Studio Code. 
-- Open the Live Server using the Visual Studio Code to the browser of your choice to see and use the application.
+1. Download Repository. 
+2. Open index.html in the Visual Studio Code. 
+3. Open the Live Server using the Visual Studio Code to the browser of your choice to see and use the application.
 
 ## Technologies Used 
 - HTML
@@ -16,6 +16,10 @@ This a simple 5-day 8AM - 5PM work day scheduler application that allows a uswer
 - dayJS
 
 ## User Story 
+
+- AS AN employee with a busy schedule
+- I WANT to add important events to a daily planner
+- SO THAT I can manage my time effectively 
 
 ## Usage
 
